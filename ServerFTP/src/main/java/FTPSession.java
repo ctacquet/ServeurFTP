@@ -1,7 +1,7 @@
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Session extends Thread {
+public class FTPSession extends Thread {
     private boolean debug = true;
     private String root;
     private String currDirectory;
@@ -9,7 +9,7 @@ public class Session extends Thread {
     private ServerSocket dataSocket;
     private int dataPort;
 
-    public Session(Socket client, int dataPort)
+    public FTPSession(Socket client, int dataPort)
     {
         super();
         this.controlSocket = client;

@@ -31,11 +31,11 @@ public class FTPServer {
                 int dataPort = port + noOfThreads + 1;
 
                 // Create new worker thread for new connection
-                Session session = new Session(client, dataPort);
+                FTPSession FTPSession = new FTPSession(client, dataPort);
 
                 System.out.println("New connection received. Worker was created.");
                 noOfThreads++;
-                session.start();
+                FTPSession.start();
             } catch (IOException e) {
                 System.out.println("Exception encountered on accept");
                 e.printStackTrace();
