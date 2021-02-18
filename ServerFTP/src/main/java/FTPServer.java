@@ -21,20 +21,20 @@ public class FTPServer {
 
         System.out.println("FTP Server started listening on port " + port);
 
-        int noOfThreads = 0;
+        int numThreads = 0;
 
         while (serverRunning) {
             try {
                 Socket client = socket.accept();
 
-                // Port for incoming dataConnection (for passive mode) is the controlPort + number of created threads + 1
-                int dataPort = port + noOfThreads + 1;
+                // Attribution d'un port pour chaque Session (Thread) qui va chercher à se connecter
+                int dataPort = port + numThreads + 1;
 
-                // Create new worker thread for new connection
+                // Création d'une session qui va se connecter à notre serveur
                 FTPSession FTPSession = new FTPSession(client, dataPort);
 
-                System.out.println("New connection received. Worker was created.");
-                noOfThreads++;
+                System.out.println("New session created");
+                numThreads++;
                 FTPSession.start();
             } catch (IOException e) {
                 System.out.println("Exception encountered on accept");
