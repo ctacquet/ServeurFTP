@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ServerFTP:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ServerFTP_jar</output-path>
+    <root id="archive" name="ServerFTP.jar">
+      <element id="module-output" name="ServerFTP" />
+    </root>
+  </artifact>
+</component>
