@@ -68,4 +68,11 @@ public class FTPServer {
             throw new IOException("Problem stopping server");
         }
     }
+
+    /**
+     * Méthode pour éteindre le serveur
+     */
+    public void stop(){
+        serverRunning = false;
+    }
 }
