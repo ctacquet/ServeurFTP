@@ -2,15 +2,33 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Classe pour représenter le serveur FTP
+ * Elle va permettre de gérer les différentes connexions entrantes
+ */
 public class FTPServer {
-    private int port = 21;
+    /**
+     * Port pour se connecter au FTP
+     * Pour pouvoir se connecter valable avec IntelliJ nous devons utiliser une valeur > à 1024
+     * (ref = https://www.jetbrains.com/help/idea/settings-debugger.html)
+     */
+    private int port = 1025;
     private ServerSocket socket;
     boolean serverRunning = true;
 
+    /**
+     * Main pour lancer notre programme
+     * @param args Argument non pris en compte
+     * @throws IOException Problème lors du lancement du serveur
+     */
     public static void main(String[] args) throws IOException {
         new FTPServer();
     }
 
+    /**
+     * Constructeur pour le serveur afin de créer le socket serveur et attendre des connexions
+     * @throws IOException
+     */
     public FTPServer() throws IOException {
         try {
             socket = new ServerSocket(port);
@@ -42,6 +60,7 @@ public class FTPServer {
             }
         }
 
+        //Fermeture du socket serveur
         try {
             socket.close();
             System.out.println("Server was stopped");
