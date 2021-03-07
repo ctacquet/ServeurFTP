@@ -27,7 +27,7 @@ public class FTPServer {
 
     /**
      * Constructeur pour le serveur afin de créer le socket serveur et attendre des connexions
-     * @throws IOException
+     * @throws IOException Problème lors de la génération du socket
      */
     public FTPServer() throws IOException {
         try {
